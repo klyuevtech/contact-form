@@ -8,6 +8,7 @@ body {
 	width: 100%;
 }
 .content-container {
+    max-width: 100%;
 	width: 500px;
 }
 .content-container main {
