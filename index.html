@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cotact Us form</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css" />
+	<script type="module" src="js/app.js"></script>
+</head>
+<body>
+	<div class="top-message-container">
+		<div class="top-message" id="top_message"></div>
+	</div>
+	<div class="main-container">
+		<div class="content-container">
+			<header>
+				<h1>Contact Us</h1>
+			</header>
+			<main>
+				<div class="contact-form-container">
+					<h3>Please ask us a question</h3>
+					<form id="contact_form" method="post" action="send">
+						<div class="form-field-container">
+							<label class="label-username" for="username">Name</label>
+							<input type="text" class="form-elem" id="username" name="username" placeholder="Name" required value='' />
+						</div>
+						<div class="form-field-container">
+							<label class="label-email" for="email">Email</label>
+							<input type="email" class="form-elem" id="email" name="email" placeholder="Email" required value='' />
+						</div>
+						<div class="form-field-container">
+							<label class="label-phone" for="phone">Phone</label>
+							<input type="tel" class="form-elem" id="phone" name="phone" placeholder="Phone" required value='' />
+						</div>
+						<div class="form-field-container">
+							<label class="label-datepicker" for="datepicker">Date</label>
+							<input type="date" class="form-elem date-picker" id="datepicker" name="date" />
+						</div>
+						<div class="form-field-container">					
+							<label class="label-question" for="question">Question</label>
+							<textarea class="form-elem" id="question" name="question" placeholder="Question" required ></textarea>
+						</div>
+						<div class="form-field-container">
+							<button type="submit" class="submit-button">Send</button>
+						</div>
+					</form>
+				</div>
+				<div id="form_overlay">
+					Please wait..
+				</div>
+			</main>
+		</div>
+	</div>
+</body>
+</html>
