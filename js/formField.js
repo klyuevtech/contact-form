@@ -147,12 +147,12 @@ export class TextFormField extends FormField {
 export class TelFormField extends FormField {
     match = /^[\+]?[0-9][(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
     
-    assignListeners(){
-        super.assignListeners();
-
+    assignListeners() {
         this.$node.addEventListener('input', event => {
             this.correctValue(event.target);
         });
+
+        super.assignListeners();
     }
 
     correctValue(elem) {

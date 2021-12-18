@@ -81,7 +81,7 @@ input.form-elem {
 .phone-form-elem-background {
     position: absolute;
     width: 100%;
-    line-height: 31px;
+    line-height: 30px;
     padding-left: 6px;
 }
 .phone-form-elem-background > span {
@@ -89,6 +89,7 @@ input.form-elem {
     font-size: 14px;
 }
 .phone-form-elem-overlay {
+    color: #fff;
     position: absolute;
     left: 0;
     padding-right: 1px;
