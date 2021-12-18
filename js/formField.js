@@ -23,8 +23,9 @@ export default class FormField {
 
     assignListeners(){
         this.$node.addEventListener('input', event => {
+            this.switchHasValue();
             this.switchLabel();
-            this.switchValid(event.target);
+            this.switchValid();
         });
     }
 
@@ -39,6 +40,14 @@ export default class FormField {
         return null;
     }
 
+    switchHasValue() {
+        if (!this.$node || this.$node.value) {
+            this.$node.classList.add('has-value');
+        } else {
+            this.$node.classList.remove('has-value');
+        }
+    }
+
     switchLabel() {
         const label = this.getLabelNode();
         if (label) {
@@ -50,11 +59,11 @@ export default class FormField {
         }
     }
 
-    switchValid($formFieldNode) {
-        if (!$formFieldNode.fieldObject || $formFieldNode.fieldObject.isValid()) {
-            $formFieldNode.fieldObject.markAsValid();
+    switchValid() {
+        if (!this.$node || this.isValid()) {
+            this.markAsValid();
         } else {
-            $formFieldNode.fieldObject.markAsInvalid();
+            this.markAsInvalid();
         }
     }
 
@@ -170,9 +179,9 @@ export class TelFormField extends FormField {
             });
             elem.value = correctedValue;
 
-            const ovelay = elem.parentElement.querySelector('.phone-form-elem-ovelay');
-            if (ovelay) {
-                ovelay.innerHTML = elem.value;
+            const overlay = elem.parentElement.querySelector('.phone-form-elem-overlay');
+            if (overlay) {
+                overlay.innerHTML = elem.value;
             }
         }
     }
