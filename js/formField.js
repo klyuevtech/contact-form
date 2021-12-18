@@ -15,6 +15,7 @@ export default class FormField {
 
     init() {
         if (this.$node) {
+            this.$node.value = '';
             this.switchLabel();
             this.assignListeners();
         }
@@ -135,10 +136,45 @@ export class TextFormField extends FormField {
 }
 
 export class TelFormField extends FormField {
-    constructor($node) {
-        super($node);
+    match = /^[\+]?[0-9][(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    
+    assignListeners(){
+        super.assignListeners();
 
-        this.match = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        this.$node.addEventListener('input', event => {
+            this.correctValue(event.target);
+        });
+    }
+
+    correctValue(elem) {
+        if (elem) {
+            elem.value = elem.value.replace(/[\D]/g,'');
+
+            if (elem.value.length > 0) {
+                elem.value = '+' + elem.value;
+            }
+
+            let correctedValue = '';
+            elem.value.split('').forEach((char,index) => {
+                if (2 === index) {
+                    correctedValue += '(';
+                }
+                if (5 === index) {
+                    correctedValue += ')';
+                }
+                if (8 === index) {
+                    correctedValue += '-';
+                }
+
+                correctedValue += char;
+            });
+            elem.value = correctedValue;
+
+            const ovelay = elem.parentElement.querySelector('.phone-form-elem-ovelay');
+            if (ovelay) {
+                ovelay.innerHTML = elem.value;
+            }
+        }
     }
 }
 

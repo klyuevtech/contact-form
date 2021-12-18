@@ -47,6 +47,35 @@ label.label-datepicker {
     border-color: red;
     box-shadow: 0 0 12px red;
 }
+input.form-elem {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    width: 220px;
+}
+#phone:placeholder-shown {
+    background-color: #fff;
+}
+#phone:not(:placeholder-shown) {
+    font-family: monospace;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.phone-form-elem-background {
+    position: absolute;
+    line-height: 31px;
+    padding-left: 6px;
+}
+.phone-form-elem-background > span {
+    font-family: monospace;
+    font-size: 14px;
+}
+.phone-form-elem-ovelay {
+    position: absolute;
+    left: 0;
+    padding-right: 1px;
+    padding-left: 6px;
+    background: #fff;
+}
 .submit-button {
 	width: 100px;
 }
